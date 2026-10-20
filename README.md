@@ -1,5 +1,7 @@
 # InternalsVisibleTo 编辑器诊断复现
 
+English reproduction steps and environment: [ISSUE.md](ISSUE.md).
+
 两个类库通过 `ProjectReference` 引用。`Engine.Slang.Interop` 用 MSBuild 的
 `InternalsVisibleTo` 项向 `Engine.Shaders` 开放内部结构体及其字段。
 复现代码没有 Slang、Vulkan、原生库或第三方包依赖。

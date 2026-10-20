@@ -8,7 +8,9 @@
 
 VS Code reports CS0122 when accessing an internal type and its fields from a friend assembly, even though `dotnet build` succeeds with 0 warnings and 0 errors.
 
-The attached repro contains only two class libraries:
+Reproduction repository: https://github.com/littletoxic/InternalsVisibleToRepro
+
+The repro contains only two class libraries:
 
 - `Engine.Slang.Interop` defines an internal `SlangGlobalSessionDesc` struct and declares `<InternalsVisibleTo Include="Engine.Shaders" />`.
 - `Engine.Shaders` references that project and accesses the internal struct and its fields.
@@ -27,12 +29,12 @@ Attach the ZIP produced by `.NET: Collect C# Dev Kit Logs` in the affected VS Co
 
 ## Steps to reproduce
 
-1. Extract the attached `InternalsVisibleToRepro.zip` into a directory.
+1. Clone `https://github.com/littletoxic/InternalsVisibleToRepro.git` and enter the `InternalsVisibleToRepro` directory.
 2. With .NET SDK `11.0.100-rc.2.26504.105` installed, run `dotnet build InternalsVisibleToRepro.slnx` in that directory. The build succeeds.
 3. Open that directory in VS Code with C# Dev Kit enabled and wait for the solution to load.
 4. Open `src/Engine.Shaders/SlangCompiler.cs` and observe the CS0122 diagnostics.
 
-The attached project already contains the `InternalsVisibleTo` item. Adding or removing it is not part of these steps.
+The project already contains the `InternalsVisibleTo` item. Adding or removing it is not part of these steps.
 
 ## Expected behavior
 
