@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Engine.Slang.Interop/Engine.Slang.Interop.csproj" />
+  <Project Path="src/Engine.Shaders/Engine.Shaders.csproj" />
+</Solution>

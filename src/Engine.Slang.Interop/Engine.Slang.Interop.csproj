@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Features>$(Features.Replace('updated-memory-safety-rules', ''))</Features>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Engine.Shaders" />
+  </ItemGroup>
+</Project>
